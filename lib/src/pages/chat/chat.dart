@@ -2,19 +2,20 @@ import 'dart:developer';
 
 import 'package:dash_chat_2/dash_chat_2.dart';
 import 'package:flutter/material.dart';
+import 'package:gemini_flutter/src/utils/constants/text.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../../utils/services/chat_services.dart';
 import '../../utils/states/chat_state.dart';
 
-class ChatBot extends StatefulWidget {
-  const ChatBot({Key? key}) : super(key: key);
+class ChatPage extends StatefulWidget {
+  const ChatPage({Key? key}) : super(key: key);
 
   @override
-  State<ChatBot> createState() => _ChatBotState();
+  State<ChatPage> createState() => _ChatPageState();
 }
 
-class _ChatBotState extends State<ChatBot> {
+class _ChatPageState extends State<ChatPage> {
   late final ChatState chatState;
   final ChatUser myself = ChatUser(id: '1', firstName: 'Barba');
   final ChatUser bot = ChatUser(id: '2', firstName: 'Gemini');
@@ -58,22 +59,29 @@ class _ChatBotState extends State<ChatBot> {
           child: ListView(
             children: [
               ListTile(
-                leading: CircleAvatar(),
+                leading: CircleAvatar(
+                  child: const Text('BT'),
+                  backgroundColor: Colors.red.withOpacity(0.85),
+                ), // Get user avatar
                 title: Text(
-                  'Barba Tech',
+                  'Barba Tech', // Get user name
                   style: GoogleFonts.roboto(
                     color: Colors.black,
                     letterSpacing: .6,
-                    fontWeight: FontWeight.normal,
+                    fontWeight: FontWeight.w500,
                   ),
                 ),
                 subtitle: Text(
-                  'email@email.com',
-                  style: GoogleFonts.roboto(),
+                  'email@email.com', // Get user email
+                  style: GoogleFonts.roboto(
+                    fontWeight: FontWeight.w300,
+                    color: Colors.black,
+                    letterSpacing: .6,
+                  ),
                 ),
               ),
               ListTile(
-                leading: Icon(Icons.home),
+                leading: const Icon(Icons.home),
                 title: Text(
                   'Home',
                   style: GoogleFonts.roboto(
@@ -107,6 +115,45 @@ class _ChatBotState extends State<ChatBot> {
                 color: Colors.grey[800],
                 onPressed: () {
                   // Send Image - Premium feature
+                  showDialog(
+                    context: context,
+                    builder: (BuildContext contenxt) {
+                      return AlertDialog(
+                        title: Text(
+                          'Recurso Premium',
+                          style: GoogleFonts.roboto(
+                            color: Colors.white.withRed(5),
+                            fontWeight: FontWeight.bold,
+                            fontSize: 20,
+                          ),
+                        ),
+                        backgroundColor: Colors.grey[800],
+                        content: Text(
+                          contentAlert,
+                          style: GoogleFonts.roboto(
+                            fontSize: 16,
+                            color: Colors.white.withOpacity(.90),
+                            fontWeight: FontWeight.w500,
+                          ),
+                        ),
+                        actions: [
+                          TextButton(
+                            onPressed: () {
+                              Navigator.pop(context);
+                            },
+                            child: Text(
+                              'OK',
+                              style: GoogleFonts.roboto(
+                                color: Colors.white.withRed(5),
+                                fontSize: 16,
+                                fontWeight: FontWeight.w600,
+                              ),
+                            ),
+                          )
+                        ],
+                      );
+                    },
+                  );
                 },
               ),
               fillColor: Colors.grey[800],

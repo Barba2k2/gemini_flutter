@@ -1,9 +1,9 @@
 name: gemini_flutter
-description: "A new Flutter project."
+description: "Conheça o Gemini, um aplicativo de chat inovador criado pela Google. Este aplicativo se baseia em tecnologia de ponta em inteligência artificial para proporcionar interações naturais e fluidas, sempre com respostas inteligentes e ajustadas às suas necessidades. Sua interface é extremamente intuitiva e de fácil utilização, prometendo revolucionar o modo como você comunica. O Gemini se destaca ainda pela sua habilidade de aprender a partir das suas conversas, se adaptando continuamente para oferecer uma experiência cada vez mais enriquecedora e sob medida. Ideal para trabalho, estudo ou entretenimento, o Gemini está preparado para ser o seu assistente virtual perfeito."
 
 publish_to: 'none' 
 
-version: 1.0.0+1
+version: 1.0.1
 
 environment:
   sdk: '>=3.2.6 <4.0.0'

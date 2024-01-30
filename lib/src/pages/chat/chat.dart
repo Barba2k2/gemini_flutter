@@ -1,10 +1,8 @@
-import 'dart:developer';
-
 import 'package:dash_chat_2/dash_chat_2.dart';
 import 'package:flutter/material.dart';
-import 'package:gemini_flutter/src/utils/constants/text.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import '../../utils/constants/text.dart';
 import '../../utils/services/chat_services.dart';
 import '../../utils/states/chat_state.dart';
 
@@ -84,6 +82,21 @@ class _ChatPageState extends State<ChatPage> {
                 leading: const Icon(Icons.home),
                 title: Text(
                   'Home',
+                  style: GoogleFonts.roboto(
+                    color: Colors.black,
+                    fontSize: 18,
+                    letterSpacing: .6,
+                    fontWeight: FontWeight.normal,
+                  ),
+                ),
+                onTap: () {
+                  Navigator.pop(context);
+                },
+              ),
+              ListTile(
+                leading: const Icon(Icons.settings_rounded),
+                title: Text(
+                  'Settings',
                   style: GoogleFonts.roboto(
                     color: Colors.black,
                     fontSize: 18,
